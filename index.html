@@ -47,7 +47,7 @@
             <div class='modal-content'>
                 <div class='modal-header'>
                     <h4 class='modal-title'>Login</h4>
-                    <button type='button' class='close' data-dismiss='modal'>
+                    <button type='button' class='close' id='closeLoginButton'>
                         &times;
                     </button>
                 </div>
@@ -71,7 +71,7 @@
                             </div>
                         </div>
                         <div class="form-row">
-                            <button type="button" class="btn btn-secondary btn-sm ml-auto" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-secondary btn-sm ml-auto" id='cancelLoginButton'>Cancel</button>
                             <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>        
                         </div>
                     </form>
@@ -85,7 +85,7 @@
             <div class='col-12 col-sm-10 modal-content'>
                 <div class='modal-header'>
                 <h4 class='modal-title'>Reserve a Table</h4>
-                <button type='button' class='close' data-dismiss='modal'>
+                <button type='button' class='close' id='closeReservationButton'>
                     &times;
                 </button>
                 </div>
@@ -146,7 +146,7 @@
                         </dl>
                         <dl class='form-group row'>
                             <dd class='offset-md-3 col-2 col-md-2'>
-                                <button data-dismiss="modal" class='btn btn-secondary'>Cancel</button>
+                                <button type='button' id='cancelReservationButton' class='btn btn-secondary'>Cancel</button>
                             </dd>
                             <dd class='offset-1 col-2 col-md-2'>
                                 <button type='submit' class='btn btn-primary'>Reserve</button>
@@ -340,10 +340,16 @@
                 }
             });
             $('#reservationButton').click(function() {
-                $('#reservationModal').modal('toggle');
+                $('#reservationModal').modal('show');
             })
             $('#loginButton').click(function() {
-                $('#reservationModal').modal('toggle');
+                $('#loginModal').modal('show');
+            })
+            $('#closeReservationButton, #cancelReservationButton').click(function() {
+                $('#reservationModal').modal('hide');
+            })
+            $('#closeLoginButton, #cancelLoginButton').click(function() {
+                $('#loginModal').modal('hide');
             })
         })
     </script>
