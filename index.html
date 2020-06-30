@@ -34,7 +34,7 @@
                         <span class='fa fa-address-card fa-lg'></span> Contact</a></li>
                 </ul>
                 <span role='button' class='navbar-text'>
-                    <a data-toggle='modal' data-target='#loginModal'>
+                    <a id='loginButton'>
                         <span class='fa fa-sign-in'></span> Login
                     </a>
                 </span>
@@ -169,7 +169,7 @@
                     <img src='img/logo.png' class='img-fluid'>
                 </div>
                 <div class='col-12 col-sm-3 align-self-center'>
-                    <a data-toggle='modal' data-target='#reservationModal' role='button' class='btn btn-warning btn-sm btn-block'>
+                    <a id='reservationButton' role='button' class='btn btn-warning btn-sm btn-block'>
                         Reserve Table
                     </a>
                 </div>
@@ -326,7 +326,7 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#mycarousel').carousel({ interval: 2000})
+            $('#mycarousel').carousel({ interval: 2000});
             $('#carouselButton').click(function() {
                 if ($('#carouselButton').children('span').hasClass('fa-pause')) {
                     $('#mycarousel').carousel('pause');
@@ -339,6 +339,12 @@
                     $('#carouselButton').children('span').addClass('fa-pause');
                 }
             });
+            $('#reservationButton').click(function() {
+                $('#reservationModal').modal('toggle');
+            })
+            $('#loginButton').click(function() {
+                $('#reservationModal').modal('toggle');
+            })
         })
     </script>
 </body>
